@@ -15,6 +15,7 @@ const padding = 40
 
 const svg = d3.select(".container")
                     .append("svg")
+                    
 
 
 
@@ -64,7 +65,7 @@ function drawbars (){
          
             tooltip.transition()
                     .style('visibility', "visible")
-            tooltip.text(dataset[i][0]+", "+dataset[i][1])
+            tooltip.text(dataset[i][0]+", "+dataset[i][1]+" USD"); 
             
             document.querySelector('#tooltip').setAttribute("data-date", dataset[i][0]);
 
@@ -74,6 +75,11 @@ function drawbars (){
                     .style('visibility', "hidden")
         })
 
+        svg.append('text')
+        .attr('transform', 'rotate(-90)')
+        .attr('x', -300)
+        .attr('y', 60)
+        .text('Gross Domestic Product');
 
 }
 
@@ -88,7 +94,7 @@ function generateAxes (){
         svg.append("g")
         .call(yAxis)
         .attr("id", "y-axis")  
-        .attr("transform", "translate("+ padding + ",0)")    
+        .attr("transform", "translate("+ padding + ",0)") 
 
 }
 
